@@ -1,0 +1,102 @@
+
+.add-payment-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60vh;
+    padding: 20px;
+
+    
+  }
+  
+  .form-container {
+    width: 30%;
+  }
+  
+  
+
+  .credit-card-container {
+    width: 40%;
+    height:85%;
+    position: relative;
+  border: 1px rgb(255, 238, 0) solid;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,.03);
+  }
+  
+  .credit-card-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.lhv.ee/assets/images/cards/gold-credit.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px); /* Adjust the blur value as needed */
+    z-index: -1;
+  }
+  
+  .credit-card-inputs {
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+ 
+  
+  .credit-card-inputs {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  
+  .credit-card-inputs label {
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .credit-card-inputs input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+  
+  .selected-coin-info {
+    margin-top: 20px;
+    color: white;
+    
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    width: 700px
+  }
+
+ 
+  
+  .form-row label {
+    width: 48%;
+  }
+
+  .form-container .form-row1{
+    width: 100%;
+  
+  }
+  
+ .form-row1 label{
+margin: 0px;
+width: 100%;
+ }
+
+ .payment-container h1{
+
+text-align: center;
+ }

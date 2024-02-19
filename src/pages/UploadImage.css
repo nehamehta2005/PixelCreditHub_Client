@@ -1,0 +1,9 @@
+.container-fluid {
+  min-height: 50vh;
+  width: 50%;
+}
+.row {
+  background: rgba(214, 214, 214, 0.25);
+  border: 1px solid white;
+  border-radius: 10px;
+}

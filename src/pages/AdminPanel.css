@@ -1,0 +1,31 @@
+.adminPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  background-color: white;
+}
+
+.adminBg {
+  border: 3px solid gray;
+  padding: 1rem;
+}
+
+/* .adminOptions {
+}
+ */
+#review {
+  background-color: #2a2a33;
+  margin-bottom: 1rem;
+}
+#review:hover {
+  background-color: #58586c;
+}
+#delete {
+  background-color: #fc3441;
+}
+
+#delete:hover {
+  background-color: #fc7780;
+}

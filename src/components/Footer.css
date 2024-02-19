@@ -1,0 +1,51 @@
+.footHead {
+  text-align: center;
+  margin: 1.5rem;
+}
+
+.footBody {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1.5rem 0;
+}
+
+.footFoot {
+  display: flex;
+  justify-content: space-between;
+}
+
+.three-sections {
+  border-top: 3px solid gray;
+  border-bottom: 3px solid gray;
+  background-color: white;
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.footer {
+  margin: 0.5rem;
+}
+
+.lang,
+.copyright {
+  margin: 0.25rem 0.5rem;
+}
+
+.col1 p,
+.col2 p,
+.col3 p,
+.col4 p {
+  margin-bottom: 0.25rem;
+  border-bottom: 3px solid transparent; /* Use transparent border by default */
+  transition: border-bottom-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.col1 p:hover,
+.col2 p:hover,
+.col3 p:hover {
+  background-color: #d0d0d0;
+  cursor: pointer;
+  border-bottom: 3px solid black;
+}

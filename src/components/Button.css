@@ -1,0 +1,6 @@
+.ButtonComponent {
+  font-size: 1rem;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+  background-color: #2a2a33;
+}

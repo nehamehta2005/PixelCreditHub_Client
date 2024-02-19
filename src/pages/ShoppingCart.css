@@ -1,0 +1,34 @@
+
+.credit-coins-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 122px 50px;
+  }
+  
+  .coin-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .coin-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .coin-option {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .coin-option:hover {
+    transform: scale(1.05);
+  }
+  

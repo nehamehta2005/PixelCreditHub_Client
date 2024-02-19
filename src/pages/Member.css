@@ -1,0 +1,31 @@
+.memberMainContainer {
+  margin: 1rem auto;
+  padding: 2rem;
+  width: 90%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+}
+.memberImg {
+  width: 300px;
+  height: auto;
+}
+
+.memberName, .memberMainContainer p {
+  margin: 0.5rem 0;
+}
+.memberLinks{
+    display: flex;
+    
+}
+.memberLinks li{
+    list-style-type: none;
+   
+    
+}
+.socialLink{
+    margin-right: 1rem;
+    color: black;
+    
+}
