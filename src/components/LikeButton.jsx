@@ -6,7 +6,8 @@ import axios from "axios";
 import { MyContext } from "../context/MyContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-const backendURL = `http://localhost:5500`;
+import baseURL from "../config/api";
+ 
 
 function LikeButton({ index, imageURL }) {
   const { state, dispatch } = useContext(MyContext);
@@ -16,7 +17,7 @@ function LikeButton({ index, imageURL }) {
   useEffect(() => {
     async function fetchInitialLikeState() {
       try {
-        const response = await axios.get(`${backendURL}/images/likes`, {
+        const response = await axios.get(baseURL + `/images/likes`, {
           params: { imageURL: imageURL }
         });
         const initialLikes = response.data.likes || 0;
@@ -31,7 +32,7 @@ function LikeButton({ index, imageURL }) {
   const handleChange = async () => {
     try {
       const newAction = iconColor === "white" ? "increment" : "decrement";
-      const response = await axios.post(`${backendURL}/images/updateLikes`, {
+      const response = await axios.post(baseURL + `/images/updateLikes`, {
         imageURL: imageURL,
         action: newAction
       });

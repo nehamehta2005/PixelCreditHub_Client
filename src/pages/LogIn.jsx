@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import baseURL from "../config/api";
 
 function LogIn() {
   const { state, dispatch } = useContext(MyContext);
@@ -20,7 +21,7 @@ function LogIn() {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5500/users/logIn", {
+      const response = await fetch(baseURL +"/users/logIn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -58,8 +59,7 @@ function LogIn() {
       payload: { forgotEmail: e.target.email.value },
     });
     try {
-      const response = await fetch(
-        "http://localhost:5500/forgotPassword/compareSecurityAnswer",
+      const response = await fetch(baseURL + "/forgotPassword/compareSecurityAnswer",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

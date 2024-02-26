@@ -1,13 +1,12 @@
 import React  from "react";
-
 import axios from "axios";
+import baseURL from "../config/api";
 
 const DownloadButton = ({ fileName }) => {
-  const backendURL = `http://localhost:5500`;
+ 
   const handleDownloadClick = async () => {
     try {
-    const response = await axios.get(
-      `${backendURL}/images/singleimage/${fileName}`,
+    const response = await axios.get(baseURL + ` /images/singleimage/${fileName}`,
       { responseType: 'blob' }  // Set responseType to 'blob' for binary data
     );
 

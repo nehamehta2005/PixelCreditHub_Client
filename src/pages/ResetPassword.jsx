@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../context/MyContext";
 import "./ResetPassword.css";
+import baseURL from "../config/api";
 const resetPassword = () => {
   const { state, dispatch } = useContext(MyContext);
   const navigate = useNavigate();
@@ -22,8 +23,7 @@ const resetPassword = () => {
         return;
       }
 
-      const response = await fetch(
-        `http://localhost:5500/forgotPassword/resetPassword/${userId}`,
+      const response = await fetch(baseURL + `/forgotPassword/resetPassword/${userId}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

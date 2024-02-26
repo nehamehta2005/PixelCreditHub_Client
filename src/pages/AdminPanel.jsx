@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import "./AdminPanel.css";
 import { Link } from "react-router-dom";
+import baseURL from '../config/api';
 function AdminPanel() {
   const [email, setEmail] = useState("");
 
@@ -10,7 +11,7 @@ function AdminPanel() {
 
   const deleteUserByEmail = async () => {
     try {
-      const res = await fetch(`http://localhost:5500/users/delete/${email}`, {
+      const res = await fetch(baseURL + `/users/delete/${email}`, {
         method: `DELETE`,
         headers: {
           'Content-Type': `application/json`,

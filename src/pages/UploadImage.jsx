@@ -3,8 +3,8 @@ import axios from "axios";
 import { MyContext } from "../context/MyContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./UploadImage.css";
-const backendURL = "http://localhost:5500";
-
+import baseURL from "../config/api";
+ 
 const UploadImage = () => {
   const { state, dispatch } = useContext(MyContext);
   const { user, selectedFile, tags, categories } = state;
@@ -54,8 +54,7 @@ const UploadImage = () => {
       formData.append("foo", selectedFile); // Use the same key that server expects ("foo")
       formData.append("tags", tags); // Append tags to formData
       formData.append("categories", categories); // Append categories to formData
-      const response = await axios.post(
-        `${backendURL}/images/upload`,
+      const response = await axios.post(baseURL + `/images/upload`,
         formData,
         {
           headers: {

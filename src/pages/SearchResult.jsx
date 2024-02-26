@@ -4,6 +4,7 @@ import { MyContext } from "../context/MyContext";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DownloadButton from "../components/DownloadButton";
+import baseURL from "../config/api";
 
 function SearchResult() {
   const { state, dispatch } = useContext(MyContext);
@@ -12,14 +13,12 @@ function SearchResult() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("query");
-  const backendURL = `http://localhost:5500`;
-
+   
   useEffect(() => {
     async function fetchSearchedImages() {
       try {
         // console.log(query);
-        const response = await axios.get(
-          `${backendURL}/images/alluploadedimages/approved/${query}`
+        const response = await axios.get(baseURL + `/images/alluploadedimages/approved/${query}`
         );
         dispatch({ type: "setAllUploads", payload: response.data });
 

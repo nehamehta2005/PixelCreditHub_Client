@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 import { MyContext } from './MyContext';
 import { reducer, initialState } from "./Reducer";
+import baseURL from '../config/api';
 
 export default function Container({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -9,7 +10,7 @@ export default function Container({ children }) {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:5500/users/verifytoken", {
+      fetch(baseURL + "/users/verifytoken", {
         method: "GET",
         headers: { token: token },
       })

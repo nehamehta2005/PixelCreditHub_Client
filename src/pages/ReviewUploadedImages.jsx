@@ -4,10 +4,7 @@ import { MyContext } from "../context/MyContext";
 import axios from "axios";
 //import "./ReviewUploadedImages.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const backendURL = `http://localhost:5500`;
-
-
+import baseURL from "../config/api";
 
 
 function ReviewUploadedImages() {
@@ -18,8 +15,8 @@ function ReviewUploadedImages() {
   useEffect(() => {
     async function fetchUploadedImages() {
       try {
-        const response = await axios.get(`${backendURL}/images/alluploadedimages/pending`);
-        //const response = await axios.get(`${backendURL}/images/alluploadedimages/here comes STATUS`);
+        const response = await axios.get(baseURL + `/images/alluploadedimages/pending`);
+        //const response = await axios.get(baseURL + `/images/alluploadedimages/here comes STATUS`);
         dispatch({ type: "setAllUploads", payload: response.data });
         console.log(response.data )
       } catch (error) {
@@ -36,7 +33,7 @@ function ReviewUploadedImages() {
   const approveImage = async (upload) => {
 
     try {
-      const res = await fetch(`${backendURL}/images/approve/${upload._id}`, {
+      const res = await fetch(baseURL + `/images/approve/${upload._id}`, {
         method: `PATCH`,
         headers: {
           "Content-Type": `application/json`,
@@ -58,7 +55,7 @@ function ReviewUploadedImages() {
   const denyImage = async (upload) => {
 
     try {
-      const res = await fetch(`${backendURL}/images/deny/${upload._id}`, {
+      const res = await fetch(baseURL + `/images/deny/${upload._id}`, {
         method: `DELETE`,
         headers: {
           "Content-Type": `application/json`,

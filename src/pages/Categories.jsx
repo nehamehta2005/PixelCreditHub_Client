@@ -4,12 +4,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { shuffle } from "lodash";
 import "./categoryStyle.css"
-
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-
-const backendURL = `http://localhost:5500`;
-
+import baseURL from '../config/api';
 
 function Categories() {
   const { state, dispatch } = useContext(MyContext);
@@ -18,8 +15,8 @@ function Categories() {
   useEffect(() => {
     async function fetchUploadedImages() {
       try {
-        //const response = await axios.get(`${backendURL}/images/alluploadedimages/pending`);
-        const response = await axios.get(`${backendURL}/images/alluploadedimages/approved`);
+        //const response = await axios.get(baseURL + `/images/alluploadedimages/pending`);
+        const response = await axios.get(baseURL + `/images/alluploadedimages/approved`);
         dispatch({ type: "setAllUploads", payload: response.data });
       } catch (error) {
         console.error("Error fetching allUploads details:", error);

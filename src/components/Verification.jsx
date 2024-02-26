@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
-const backendURL = `http://localhost:5500`;
+import baseURL from '../config/api';
+
 
 function Verification() {
   const { token } = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${backendURL}/users/verify?token=${token}`, {
+    fetch(baseURL + `/users/verify?token=${token}`, {
         method: 'GET', // or 'POST' depending on your backend implementation
         headers: {
           'Content-Type': 'application/json',

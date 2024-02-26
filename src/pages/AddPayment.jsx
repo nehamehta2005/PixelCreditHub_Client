@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './AddPayment.css';
+import baseURL from '../config/api';
 
 const AddPayment = () => {
   const { price } = useParams();
@@ -12,8 +12,7 @@ const AddPayment = () => {
     phoneNumber: '',
     dateOfBirth: '',
     cardNumber: '', 
- 
-    expirationDate: '',
+     expirationDate: '',
     cvv: '',
   });
   const [purchaseSuccess, setPurchaseSuccess] = useState(false);
@@ -31,7 +30,7 @@ const AddPayment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5500/savePayment/payment', {
+      const response = await fetch(baseURL + '/savePayment/payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

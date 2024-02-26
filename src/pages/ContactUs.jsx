@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 //import "./ContactUs.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import baseURL from "../config/api";
 
 function ContactUs() {
   const [submitted, setSubmitted] = useState(false);
@@ -25,7 +26,7 @@ function ContactUs() {
     const data = { ...formData };
     setSenderName(data.firstName);
 
-    fetch("http://localhost:5500/submitContactForm/contactUs", {
+    fetch(baseURL + "/submitContactForm/contactUs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -8,7 +8,8 @@ import "./LandingPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle, faShareFromSquare } from "@fortawesome/free-regular-svg-icons";
 import { faCartArrowDown, faHeart, faDownload } from '@fortawesome/free-solid-svg-icons';
-const backendURL = `http://localhost:5500`;
+import baseURL from "../config/api";
+ 
 function LandingPage() {
 
   const { state, dispatch } = useContext(MyContext);
@@ -18,8 +19,8 @@ function LandingPage() {
   useEffect(() => {
     async function fetchUploadedImages() {
       try {
-        //const response = await axios.get(`${backendURL}/images/alluploadedimages/pending`);
-        const response = await axios.get(`${backendURL}/images/alluploadedimages/approved`);
+        //const response = await axios.get(baseURL + `/images/alluploadedimages/pending`);
+        const response = await axios.get(baseURL + `/images/alluploadedimages/approved`);
         dispatch({ type: "setAllUploads", payload: response.data });
       } catch (error) {
         console.error("Error fetching allUploads details:", error);

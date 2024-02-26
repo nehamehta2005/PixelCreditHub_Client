@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import baseURL from "../config/api";
 
 function Register() {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ function Register() {
     console.log(user);
 
     // Making POST request
-    fetch("http://localhost:5500/users/register", {
+    fetch(baseURL + "/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

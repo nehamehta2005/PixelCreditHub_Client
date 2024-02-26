@@ -12,11 +12,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "./Member.css";
 import profileLogo from "../assets/images/profileLogo.png";
+import baseURL from "../config/api";
 // import logo from "../assets/images/Logo.png";
 
-const backendURL = `http://localhost:5500`;
-
-function Member() {
+ function Member() {
   const { memberName } = useParams();
   const { state, dispatch } = useContext(MyContext);
   const { singleMember } = state;
@@ -24,7 +23,7 @@ function Member() {
   useEffect(() => {
     async function fetchMemberDetails() {
       try {
-        const response = await axios.get(`${backendURL}/members/${memberName}`);
+        const response = await axios.get(baseURL + `/members/${memberName}`);
         dispatch({ type: "setsingleMember", payload: response.data });
       } catch (error) {
         console.error("Error fetching member details:", error);

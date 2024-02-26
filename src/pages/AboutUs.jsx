@@ -3,9 +3,9 @@ import axios from "axios";
 import { MyContext } from "../context/MyContext";
 import { Link } from "react-router-dom";
 import "./AboutUs.css";
+import baseURL from "../config/api";
 
-const backendURL = `http://localhost:5500`;
-
+  
 function AboutUs() {
   const { state, dispatch } = useContext(MyContext);
   const { members } = state;
@@ -14,7 +14,7 @@ console.log(members);
     // Fetch member data from your backend API
     async function fetchMembers() {
       try {
-        const response = await axios.get(`${backendURL}/members`);
+        const response = await axios.get(baseURL + `/members`);
         dispatch({ type: "setMembers", payload: response.data });
       } catch (error) {
         console.error("Error fetching member data:", error);
