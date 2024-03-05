@@ -1,4 +1,4 @@
-import React , {useState, useEffect, useContext, useMemo } from "react";
+import React, { useState, useEffect, useContext, useMemo } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { MyContext } from "../context/MyContext";
@@ -6,28 +6,35 @@ import Button from "../components/Button";
 import { shuffle } from "lodash";
 import "./LandingPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle, faShareFromSquare } from "@fortawesome/free-regular-svg-icons";
-import { faCartArrowDown, faHeart, faDownload } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlayCircle,
+  faShareFromSquare,
+} from "@fortawesome/free-regular-svg-icons";
+import {
+  faCartArrowDown,
+  faHeart,
+  faDownload,
+} from "@fortawesome/free-solid-svg-icons";
 import baseURL from "../config/api";
- 
-function LandingPage() {
 
+function LandingPage() {
   const { state, dispatch } = useContext(MyContext);
   const { allUploads, categories } = state;
-  const [iconColors, setIconColors] = useState(['white', 'white', 'white']);
+  const [iconColors, setIconColors] = useState(["white", "white", "white"]);
 
   useEffect(() => {
     async function fetchUploadedImages() {
       try {
-        //const response = await axios.get(baseURL + `/images/alluploadedimages/pending`);
-        const response = await axios.get(baseURL + `/images/alluploadedimages/approved`);
+        console.log("fetching images");
+        const response = await axios.get(
+          baseURL + `/images/alluploadedimages/approved`
+        );
         dispatch({ type: "setAllUploads", payload: response.data });
       } catch (error) {
         console.error("Error fetching allUploads details:", error);
-         
       }
     }
-     fetchUploadedImages();
+    fetchUploadedImages();
   }, []);
 
   const getRandomImageURLs = useMemo(() => {
@@ -35,15 +42,16 @@ function LandingPage() {
       return ["alt.png"];
     }
     const shuffledUploads = shuffle(allUploads.slice());
-    return shuffledUploads.slice(0, 10).map((upload) => upload ? upload.imageURL : "alt.png");
+    return shuffledUploads
+      .slice(0, 10)
+      .map((upload) => (upload ? upload.imageURL : "alt.png"));
   }, [allUploads]);
-  
 
   const handleChange = (index) => {
-      // Toggle the color of the specific heart icon at the given index
-      const newIconColors = [...iconColors];
-      newIconColors[index] = iconColors[index] === 'white' ? 'red' : 'white';
-      setIconColors(newIconColors);
+    // Toggle the color of the specific heart icon at the given index
+    const newIconColors = [...iconColors];
+    newIconColors[index] = iconColors[index] === "white" ? "red" : "white";
+    setIconColors(newIconColors);
   };
 
   return (
@@ -63,7 +71,10 @@ function LandingPage() {
           </Link>
         </div>
 
-        <div className="imageDiv" style={{ backgroundImage: `url('${getRandomImageURLs[0]}')` }}>
+        <div
+          className="imageDiv"
+          style={{ backgroundImage: `url('${getRandomImageURLs[0]}')` }}
+        >
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
@@ -76,7 +87,10 @@ function LandingPage() {
       </div>
 
       <div className="Home-cardContainer">
-        <div className="imageDiv smallImageDiv" style={{ backgroundImage: `url('${getRandomImageURLs[1]}')` }}>
+        <div
+          className="imageDiv smallImageDiv"
+          style={{ backgroundImage: `url('${getRandomImageURLs[1]}')` }}
+        >
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
@@ -96,24 +110,42 @@ function LandingPage() {
 
         <div className="imageContainer">
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN" style={{ backgroundImage: `url('${getRandomImageURLs[2]}')` }}>
+            <div
+              className="imageDiv withBTN"
+              style={{ backgroundImage: `url('${getRandomImageURLs[2]}')` }}
+            >
               <Link className="imageLink">
-                <img src="" alt=""/>
+                <img src="" alt="" />
               </Link>
             </div>
             <div className="btnDiv">
               <Button
-                buttonText={<FontAwesomeIcon icon={faHeart} style={{ color: iconColors[0] }} />}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    style={{ color: iconColors[0] }}
+                  />
+                }
                 className="BTN"
                 onClick={() => handleChange(0)}
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }} />}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faShareFromSquare}
+                    style={{ color: "white" }}
+                  />
+                }
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faDownload} style={{ color: "white" }} />}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faDownload}
+                    style={{ color: "white" }}
+                  />
+                }
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -121,24 +153,42 @@ function LandingPage() {
           </div>
 
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN" style={{ backgroundImage: `url('${getRandomImageURLs[3]}')` }}>
+            <div
+              className="imageDiv withBTN"
+              style={{ backgroundImage: `url('${getRandomImageURLs[3]}')` }}
+            >
               <Link className="imageLink">
                 <img src="" alt="" />
               </Link>
             </div>
             <div className="btnDiv">
               <Button
-                buttonText={<FontAwesomeIcon icon={faHeart} style={{ color: iconColors[1] }}/>}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    style={{ color: iconColors[1] }}
+                  />
+                }
                 className="BTN"
                 onClick={() => handleChange(1)}
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }}/>}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faShareFromSquare}
+                    style={{ color: "white" }}
+                  />
+                }
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faCartArrowDown} style={{ color: "white" }} />}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faCartArrowDown}
+                    style={{ color: "white" }}
+                  />
+                }
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -146,24 +196,42 @@ function LandingPage() {
           </div>
 
           <div className="imageOuterDiv">
-            <div className="imageDiv withBTN" style={{ backgroundImage: `url('${getRandomImageURLs[4]}')` }}>
+            <div
+              className="imageDiv withBTN"
+              style={{ backgroundImage: `url('${getRandomImageURLs[4]}')` }}
+            >
               <Link className="imageLink">
                 <img src="" alt="" />
               </Link>
             </div>
             <div className="btnDiv">
               <Button
-               buttonText={<FontAwesomeIcon icon={faHeart} style={{ color: iconColors[2] }}/>}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    style={{ color: iconColors[2] }}
+                  />
+                }
                 className="BTN"
-                onClick={() => handleChange(2)} 
+                onClick={() => handleChange(2)}
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faShareFromSquare} style={{ color: "white" }}/>}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faShareFromSquare}
+                    style={{ color: "white" }}
+                  />
+                }
                 className="BTN"
                 /* onClick={handleShare} */
               />
               <Button
-                buttonText={<FontAwesomeIcon icon={faCartArrowDown} style={{ color: "white" }}/>}
+                buttonText={
+                  <FontAwesomeIcon
+                    icon={faCartArrowDown}
+                    style={{ color: "white" }}
+                  />
+                }
                 className="BTN"
                 /* onClick={handleSearch} */
               />
@@ -189,22 +257,34 @@ function LandingPage() {
       </div> */}
 
       <div className="Home-cardContainer imageContainer">
-        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURLs[5]}')` }}>
+        <div
+          className="imageDiv bottomImageDiv"
+          style={{ backgroundImage: `url('${getRandomImageURLs[5]}')` }}
+        >
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURLs[6]}')` }}>
+        <div
+          className="imageDiv bottomImageDiv"
+          style={{ backgroundImage: `url('${getRandomImageURLs[6]}')` }}
+        >
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURLs[7]}')` }}>
+        <div
+          className="imageDiv bottomImageDiv"
+          style={{ backgroundImage: `url('${getRandomImageURLs[7]}')` }}
+        >
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>
         </div>
-        <div className="imageDiv bottomImageDiv" style={{ backgroundImage: `url('${getRandomImageURLs[8]}')` }}>
+        <div
+          className="imageDiv bottomImageDiv"
+          style={{ backgroundImage: `url('${getRandomImageURLs[8]}')` }}
+        >
           <Link className="imageLink">
             <img src="" alt="" />
           </Link>

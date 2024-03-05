@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import baseURL from "../config/api";
-
+import loginAvatar from "../assets/images/loginavatar.png"
 function LogIn() {
   const { state, dispatch } = useContext(MyContext);
   const [resetPassword, setResetPassword] = useState(false);
@@ -21,7 +21,7 @@ function LogIn() {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(baseURL +"/users/logIn", {
+      const response = await fetch(baseURL + "/users/logIn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -96,8 +96,8 @@ function LogIn() {
         <div className="left-side">
           <h1>Welcome to PixelCredit Hub</h1>
           <img
-            src="http://www.prothetik.med.uni-goettingen.de/wp-content/uploads/sites/2/2020/11/blank-profile-picture-973460_640-1-300x300.png"
-            alt="PixelCredit Hub"
+            src={loginAvatar}
+            alt="loginAvatar"
           />
         </div>
 
