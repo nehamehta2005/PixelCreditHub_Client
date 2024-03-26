@@ -9,7 +9,7 @@ function Verification() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(baseURL + `/users/verify?token=${token}`, {
+    fetch(`${baseURL}/users/verify?token=${token}`, {
         method: 'GET', // or 'POST' depending on your backend implementation
         headers: {
           'Content-Type': 'application/json',

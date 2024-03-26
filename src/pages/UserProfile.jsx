@@ -28,7 +28,7 @@ const UserProfile = () => {
       formData.append("profileImage", file); // Use the correct field name
       console.log(file);
       // Use Axios to send the file to the server
-      const response = await axios.post(baseURL + `/profile/update-image/${userid}`,
+      const response = await axios.post(`${baseURL}/profile/update-image/${userid}`,
         formData,
         {
           headers: {
@@ -48,7 +48,7 @@ const UserProfile = () => {
     console.log("geting in")
     try {
       console.log("got in")
-      const response = await axios.post(baseURL + `/profile/delete-image/${userid}`
+      const response = await axios.post(`${baseURL}/profile/delete-image/${userid}`
       );
       window.location.reload();
       console.log("Profile image deleted successfully");

@@ -10,7 +10,7 @@ export default function Container({ children }) {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch(baseURL + "/users/verifytoken", {
+      fetch(`${baseURL}/users/verifytoken`, {
         method: "GET",
         headers: { token: token },
       })

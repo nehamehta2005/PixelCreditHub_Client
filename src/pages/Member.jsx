@@ -23,7 +23,7 @@ import baseURL from "../config/api";
   useEffect(() => {
     async function fetchMemberDetails() {
       try {
-        const response = await axios.get(baseURL + `/members/${memberName}`);
+        const response = await axios.get(`${baseURL}/members/${memberName}`);
         dispatch({ type: "setsingleMember", payload: response.data });
       } catch (error) {
         console.error("Error fetching member details:", error);

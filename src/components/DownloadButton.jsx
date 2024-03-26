@@ -6,7 +6,7 @@ const DownloadButton = ({ fileName }) => {
   const handleDownloadClick = async () => {
     try {
       const response = await axios.get(
-        baseURL + ` /images/singleimage/${fileName}`,
+        `${baseURL}/images/singleimage/${fileName}`,
         { responseType: "blob" } // Set responseType to 'blob' for binary data
       );
 

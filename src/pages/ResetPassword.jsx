@@ -23,7 +23,7 @@ const resetPassword = () => {
         return;
       }
 
-      const response = await fetch(baseURL + `/forgotPassword/resetPassword/${userId}`,
+      const response = await fetch(`${baseURL}/forgotPassword/resetPassword/${userId}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

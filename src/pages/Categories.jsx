@@ -15,8 +15,8 @@ function Categories() {
   useEffect(() => {
     async function fetchUploadedImages() {
       try {
-        //const response = await axios.get(baseURL + `/images/alluploadedimages/pending`);
-        const response = await axios.get(baseURL + `/images/alluploadedimages/approved`);
+        //const response = await axios.get(`${baseURL}/images/alluploadedimages/pending`);
+        const response = await axios.get(`${baseURL}/images/alluploadedimages/approved`);
         dispatch({ type: "setAllUploads", payload: response.data });
       } catch (error) {
         console.error("Error fetching allUploads details:", error);

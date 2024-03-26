@@ -15,8 +15,8 @@ function ReviewUploadedImages() {
   useEffect(() => {
     async function fetchUploadedImages() {
       try {
-        const response = await axios.get(baseURL + `/images/alluploadedimages/pending`);
-        //const response = await axios.get(baseURL + `/images/alluploadedimages/here comes STATUS`);
+        const response = await axios.get(`${baseURL}/images/alluploadedimages/pending`);
+        //const response = await axios.get(`${baseURL}/images/alluploadedimages/here comes STATUS`);
         dispatch({ type: "setAllUploads", payload: response.data });
         console.log(response.data )
       } catch (error) {
@@ -31,23 +31,27 @@ function ReviewUploadedImages() {
 
   // Clicking on approveImage, sets it's status to "approved" in the database.
   const approveImage = async (upload) => {
-
+    
     try {
-      const res = await fetch(baseURL + `/images/approve/${upload._id}`, {
+     
+      const res = await fetch(`${baseURL}/images/approve/${upload._id}`, {
+        
         method: `PATCH`,
         headers: {
           "Content-Type": `application/json`,
         },
       });
-      /* if (res.ok) {
+       if (res.ok) {
         alert("Image approved successfully");
       } else {
         const errorData = await res.json(); 
         alert(`Error: ${errorData.message}`);
-      } */
+        
+      } 
       window.location.reload();
     } catch (err) {
       console.error(err);
+      console.log("Hello")
     }
   }
 
@@ -55,7 +59,7 @@ function ReviewUploadedImages() {
   const denyImage = async (upload) => {
 
     try {
-      const res = await fetch(baseURL + `/images/deny/${upload._id}`, {
+      const res = await fetch(`${baseURL}/images/deny/${upload._id}`, {
         method: `DELETE`,
         headers: {
           "Content-Type": `application/json`,

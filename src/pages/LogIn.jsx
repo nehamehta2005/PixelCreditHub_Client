@@ -21,7 +21,7 @@ function LogIn() {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(baseURL + "/users/logIn", {
+      const response = await fetch(`${baseURL}/users/logIn`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -59,7 +59,7 @@ function LogIn() {
       payload: { forgotEmail: e.target.email.value },
     });
     try {
-      const response = await fetch(baseURL + "/forgotPassword/compareSecurityAnswer",
+      const response = await fetch(`${baseURL}/forgotPassword/compareSecurityAnswer`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

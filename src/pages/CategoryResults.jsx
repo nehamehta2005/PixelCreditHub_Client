@@ -23,7 +23,7 @@ function CategoryResults() {
     async function fetchCategoryImages() {
       try {
         // Filter images based on the selected category
-        const response = await axios.get(baseURL + `/images/alluploadedimages/approved/${selectedCategory}`);
+        const response = await axios.get(`${baseURL}/images/alluploadedimages/approved/${selectedCategory}`);
         const filteredImages = response.data;
   
         setCategoryImages(filteredImages);

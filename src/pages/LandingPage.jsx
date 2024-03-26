@@ -6,10 +6,7 @@ import Button from "../components/Button";
 import { shuffle } from "lodash";
 import "./LandingPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlayCircle,
-  faShareFromSquare,
-} from "@fortawesome/free-regular-svg-icons";
+import { faShareFromSquare } from "@fortawesome/free-regular-svg-icons";
 import {
   faCartArrowDown,
   faHeart,
@@ -27,7 +24,7 @@ function LandingPage() {
       try {
         console.log("fetching images");
         const response = await axios.get(
-          baseURL + `/images/alluploadedimages/approved`
+          `${baseURL}/images/alluploadedimages/approved`
         );
         dispatch({ type: "setAllUploads", payload: response.data });
       } catch (error) {

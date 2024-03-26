@@ -30,7 +30,7 @@ const AddPayment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(baseURL + '/savePayment/payment', {
+      const response = await fetch(`${baseURL}/savePayment/payment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

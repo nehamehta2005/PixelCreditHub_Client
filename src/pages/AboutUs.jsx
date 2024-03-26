@@ -14,7 +14,7 @@ console.log(members);
     // Fetch member data from your backend API
     async function fetchMembers() {
       try {
-        const response = await axios.get(baseURL + `/members`);
+        const response = await axios.get(`${baseURL}/members`);
         dispatch({ type: "setMembers", payload: response.data });
       } catch (error) {
         console.error("Error fetching member data:", error);

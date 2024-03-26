@@ -47,7 +47,7 @@ function Register() {
     console.log(user);
 
     // Making POST request
-    fetch(baseURL + "/users/register", {
+    fetch(`${baseURL}/users/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

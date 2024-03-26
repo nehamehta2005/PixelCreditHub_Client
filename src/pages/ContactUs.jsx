@@ -26,7 +26,7 @@ function ContactUs() {
     const data = { ...formData };
     setSenderName(data.firstName);
 
-    fetch(baseURL + "/submitContactForm/contactUs", {
+    fetch(`${baseURL}/submitContactForm/contactUs`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

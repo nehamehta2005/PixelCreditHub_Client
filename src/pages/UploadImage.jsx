@@ -54,7 +54,7 @@ const UploadImage = () => {
       formData.append("foo", selectedFile); // Use the same key that server expects ("foo")
       formData.append("tags", tags); // Append tags to formData
       formData.append("categories", categories); // Append categories to formData
-      const response = await axios.post(baseURL + `/images/upload`,
+      const response = await axios.post(`${baseURL}/images/upload`,
         formData,
         {
           headers: {

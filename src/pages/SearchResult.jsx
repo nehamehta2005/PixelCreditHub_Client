@@ -18,7 +18,7 @@ function SearchResult() {
     async function fetchSearchedImages() {
       try {
         // console.log(query);
-        const response = await axios.get(baseURL + `/images/alluploadedimages/approved/${query}`
+        const response = await axios.get(`${baseURL}/images/alluploadedimages/approved/${query}`
         );
         dispatch({ type: "setAllUploads", payload: response.data });
 

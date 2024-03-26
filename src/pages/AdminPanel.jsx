@@ -11,7 +11,7 @@ function AdminPanel() {
 
   const deleteUserByEmail = async () => {
     try {
-      const res = await fetch(baseURL + `/users/delete/${email}`, {
+      const res = await fetch(`${baseURL}/users/delete/${email}`, {
         method: `DELETE`,
         headers: {
           'Content-Type': `application/json`,

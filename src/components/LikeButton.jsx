@@ -17,7 +17,7 @@ function LikeButton({ index, imageURL }) {
   useEffect(() => {
     async function fetchInitialLikeState() {
       try {
-        const response = await axios.get(baseURL + `/images/likes`, {
+        const response = await axios.get(`${baseURL}/images/likes`, {
           params: { imageURL: imageURL }
         });
         const initialLikes = response.data.likes || 0;
@@ -32,7 +32,7 @@ function LikeButton({ index, imageURL }) {
   const handleChange = async () => {
     try {
       const newAction = iconColor === "white" ? "increment" : "decrement";
-      const response = await axios.post(baseURL + `/images/updateLikes`, {
+      const response = await axios.post(`${baseURL}/images/updateLikes`, {
         imageURL: imageURL,
         action: newAction
       });
